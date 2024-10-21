@@ -1,0 +1,113 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package fpt.capstone.proto.user;
+
+message UserDtoProto {
+  string userId = 1;
+  string userName = 2;
+  string firstName = 3;
+  string lastName = 4;
+  string email = 5;
+}
+
+message GetUserRequest {
+  string userId = 1;
+}
+message GetUserResponse {
+  UserDtoProto response = 1;
+}
+message ConvertLogCallToAccCoRequest {
+  int64 leadId = 1;
+  int64 accountId = 2;
+  int64 contactId = 3;
+}
+message ConvertLogCallToAccCoResponse {
+  bool response = 1;
+}
+message ConvertLogCallToOppRequest {
+  int64 leadId = 1;
+  int64 opportunityId = 2;
+}
+message ConvertLogCallToOppResponse {
+  bool response = 1;
+}
+
+message ConvertLogEmailToAccCoRequest {
+  int64 leadId = 1;
+  int64 accountId = 2;
+  int64 contactId = 3;
+}
+message ConvertLogEmailToAccCoResponse {
+  bool response = 1;
+}
+message ConvertLogEmailToOppRequest {
+  int64 leadId = 1;
+  int64 opportunityId = 2;
+}
+message ConvertLogEmailToOppResponse {
+  bool response = 1;
+}
+
+message ConvertLogEventToAccCoRequest {
+  int64 leadId = 1;
+  int64 accountId = 2;
+  int64 contactId = 3;
+}
+message ConvertLogEventToAccCoResponse {
+  bool response = 1;
+}
+
+message CreateNotificationRequest{
+  string userId = 1;
+  string content = 2;
+  int64 linkId = 3;
+  int64 notificationType = 5;
+  repeated string listUser = 6;
+}
+message CreateNotificationResponse {
+  bool response = 1;
+}
+
+message GetUserRolesRequest{
+  string userId = 1;
+}
+message GetUserRolesResponse {
+  repeated string listRoles = 1;
+}
+
+service UserService {
+  rpc GetUser(GetUserRequest) returns (GetUserResponse) {};
+  rpc ConvertLogCallToAccCo(ConvertLogCallToAccCoRequest) returns (ConvertLogCallToAccCoResponse) {};
+  rpc ConvertLogCallToOpp(ConvertLogCallToOppRequest) returns (ConvertLogCallToOppResponse) {};
+
+  rpc ConvertLogEmailToAccCo(ConvertLogEmailToAccCoRequest) returns (ConvertLogEmailToAccCoResponse) {};
+  rpc ConvertLogEmailToOpp(ConvertLogEmailToOppRequest) returns (ConvertLogEmailToOppResponse) {};
+
+  rpc ConvertLogEventToAccCo(ConvertLogEventToAccCoRequest) returns (ConvertLogEventToAccCoResponse) {};
+
+  rpc CreateNotification(CreateNotificationRequest) returns (CreateNotificationResponse) {};
+  rpc GetUserRoles(GetUserRolesRequest) returns (GetUserRolesResponse) {};
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

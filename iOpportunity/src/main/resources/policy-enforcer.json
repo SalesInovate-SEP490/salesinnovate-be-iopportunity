@@ -1,0 +1,27 @@
+{
+  "realm": "master",
+  "auth-server-url": "http://194.233.65.193:8080",
+  "resource": "sales-innovate",
+  "credentials": {
+    "secret": "kZnyxMsIEYLxqKjM9RkJ4xNSlK5c2SCU"
+  },
+  "http-method-as-scope": true,
+  "paths": [
+    {
+      "path": "/swagger-ui/*",
+      "enforcement-mode": "DISABLED"
+    },
+    {
+      "path": "/v3/api-docs/*",
+      "enforcement-mode": "DISABLED"
+    },
+    {
+      "path": "/api/quote/*",
+      "enforcement-mode": "DISABLED"
+    },
+    {
+      "path": "/api/quote/export-quote/{quoteId}",
+      "enforcement-mode": "DISABLED"
+    }
+  ]
+}

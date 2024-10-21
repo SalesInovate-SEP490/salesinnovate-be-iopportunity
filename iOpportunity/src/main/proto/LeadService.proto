@@ -1,0 +1,104 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package fpt.capstone.proto.lead;
+
+message LeadDtoProto {
+  int64 leadId = 1;
+  LeadSourceDtoProto source = 2;
+  IndustryDtoProto industry = 3;
+  LeadStatusDtoProto status = 4;
+  LeadRatingDtoProto rating = 5;
+  AddressInformationDtoProto addressInfor = 6;
+  LeadSalutionDtoProto salution = 7;
+  string firstName = 8;
+  string lastName =9;
+  int32 gender = 10;
+  string title = 11;
+  string email = 12;
+  string phone = 13;
+  string website = 14;
+  string company = 15;
+  int32 noEmployee =16;
+  int32 isDelete = 17;
+
+}
+
+message LeadSourceDtoProto {
+  int64 leadSourceId = 1;
+  string leadSourceName = 2;
+}
+message IndustryDtoProto {
+  int64 industryId = 1;
+  string industryStatusName = 2;
+}
+message LeadStatusDtoProto {
+  int64 leadStatusId = 1;
+  string leadStatusName = 2;
+}
+message LeadRatingDtoProto {
+  int64 leadRatingId = 1;
+  string leadRatingName = 2;
+}
+message AddressInformationDtoProto {
+  int64 addressInformationId = 1;
+  string street = 2;
+  string city = 3;
+  string province = 4;
+  string postalCode = 5;
+  string country = 6;
+
+}
+message LeadSalutionDtoProto {
+  int64 leadSalutionId = 1;
+  string leadSalutionName = 2;
+}
+
+message GetLeadRequest {
+  int64 leadId = 1;
+}
+message GetLeadResponse {
+  LeadDtoProto response = 1;
+}
+
+message GetAddressInformationRequest {
+  int64 addressInformationId = 1;
+}
+message GetAddressInformationResponse {
+  AddressInformationDtoProto response = 1;
+}
+
+message GetSalutionRequest {
+  int64 leadSalutionId = 1;
+}
+message GetSalutionResponse {
+  LeadSalutionDtoProto response = 1;
+}
+
+service LeadService {
+  rpc GetLead(GetLeadRequest) returns (GetLeadResponse) {};
+  rpc GetAddressInformation(GetAddressInformationRequest) returns (GetAddressInformationResponse){};
+  rpc GetSalution(GetSalutionRequest) returns (GetSalutionResponse){} ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

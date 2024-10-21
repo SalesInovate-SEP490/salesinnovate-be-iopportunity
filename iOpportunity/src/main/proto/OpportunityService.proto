@@ -1,0 +1,79 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package fpt.capstone.proto.opportunity;
+
+message OpportunityDtoProto {
+  int64 opportunityId = 1;
+  string opportunityName = 2;
+  int64 accountId = 3;
+}
+
+message GetOpportunityRequest {
+  int64 opportunityId = 1;
+}
+message GetOpportunityResponse {
+  OpportunityDtoProto response = 1;
+}
+
+message ConvertCampaignFromLeadToContactRequest {
+  string userId = 1;
+  int64 leadId = 2;
+  int64 contactId = 3;
+}
+message ConvertCampaignFromLeadToContactResponse {
+  bool response = 1;
+}
+
+message DeleteContactRoleRequest {
+  int64 contactId = 1;
+  int64 opportunityId = 2;
+}
+message DeleteContactRoleResponse {
+  bool response = 1;
+}
+
+message DeleteRelationLeadCampaignRequest {
+  int64 leadId = 1;
+}
+message DeleteRelationLeadCampaignResponse {
+  bool response = 1;
+}
+
+message AssignUserFollowingAccountRequest {
+  int64 accountId = 1;
+  repeated string listUser = 2;
+}
+message AssignUserFollowingAccountResponse {
+  bool response = 1;
+}
+
+service OpportunityService {
+  rpc GetOpportunity(GetOpportunityRequest) returns (GetOpportunityResponse) {};
+  rpc ConvertCampaignFromLeadToContact(ConvertCampaignFromLeadToContactRequest) returns (ConvertCampaignFromLeadToContactResponse) {};
+  rpc DeleteContactRole(DeleteContactRoleRequest) returns (DeleteContactRoleResponse) {};
+  rpc DeleteRelationLeadCampaign(DeleteRelationLeadCampaignRequest) returns (DeleteRelationLeadCampaignResponse) {};
+  rpc AssignUserFollowingAccount(AssignUserFollowingAccountRequest) returns (AssignUserFollowingAccountResponse) {};
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

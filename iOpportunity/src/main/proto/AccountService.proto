@@ -1,0 +1,50 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package fpt.capstone.proto.account;
+
+message AccountDtoProto {
+  int64 accountId = 1;
+  string accountName = 2;
+  int64 parentAccountId = 3;
+  string description = 4;
+  string phone = 5;
+  string website = 6;
+  int32 noEmployee = 7;
+  int32 isDeleted = 8;
+  int64 billingInformation = 9;
+  int64 shippingInformation = 10;
+}
+
+message GetAccountRequest {
+  int64 accountId = 1;
+}
+message GetAccountResponse {
+  AccountDtoProto response = 1;
+}
+
+service AccountService {
+  rpc GetAccount(GetAccountRequest) returns (GetAccountResponse) {};
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
